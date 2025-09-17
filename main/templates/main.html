@@ -25,7 +25,8 @@
   <p><b>{{ product.get_category_display }}</b>{% if product.is_featured %} | 
     <b>Featured</b>{% endif %}{% if product.is_product_hot %} | 
     <b>Hot</b>{% endif %} | <i>{{ product.created_at|date:"d M Y H:i" }}</i> 
-    | Views: {{ product.item_views }}</p>
+    | Views: {{ product.item_views }}
+    | Price: Rp {{ product.price }}</p>
 
   {% if product.thumbnail %}
   <img src="{{ product.thumbnail }}" alt="thumbnail" width="150" height="100">
