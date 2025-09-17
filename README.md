@@ -164,7 +164,7 @@ https://anak-agung44-louisballton.pbp.cs.ui.ac.id/
             except Product.DoesNotExist:
                 return HttpResponse(status=404)
         lalu di tambahkan ke dalam urls.py
-    2. Lalu saya membuat direktori baru di direktori utama dengan nama templates yang berisi file base.html, base.html berfungsi sebagai template dasar yang dapat digunakan sebagai kerangka umum untuk        halaman web lainnya di dalam proyek. Isilah berkas base.html
+    2. Lalu saya membuat direktori baru di direktori utama dengan nama templates yang berisi file base.html, base.html berfungsi sebagai template dasar yang dapat digunakan sebagai kerangka umum untuk halaman web lainnya di dalam proyek.
     3. Lalu saya update settings.py yang berisi TEMPLATES dan menambahkan 'DIRS': [BASE_DIR / 'templates'] agar file base.html terdeteksi sebagai file templates
     4. Buat berkas baru pada direktori main dengan nama forms.py untuk membuat struktur form yang dapat menerima data Product baru. 
     5. Buka berkas views.py yang ada pada direktori main dan tambahkan beberapa import lalu menambahkan fungsi fungsi berikut:
