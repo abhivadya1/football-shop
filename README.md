@@ -123,3 +123,89 @@ https://anak-agung44-louisballton.pbp.cs.ui.ac.id/
 
   # 6. Apakah ada feedback untuk asisten dosen tutorial 1 yang telah kamu kerjakan sebelumnya?
     Menurut saya tutorialnya sudah baik karena mudah dipahami, terlebih untuk pemula seperti saya.
+
+
+# TUGAS 3
+# 1. Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
+    Data delivery diperlukan dalam implementasi platform karena ia yang memastikan informasi bisa berpindah dari server ke pengguna, antar komponen sistem, dan antar layanan eksternal secara aman, cepat, dan         konsisten. Tanpa mekanisme ini, platform hanya jadi sistem statis yang tidak bisa benar-benar digunakan.
+# 2. Menurutmu, mana yang lebih baik antara XML dan JSON? Mengapa JSON lebih populer dibandingkan XML?
+    Menurut saya, JSON lebih baik dibandingkan XML karena lebih ringkas, mudah dibaca, cepat diproses, dan langsung terintegrasi dengan JavaScript sehingga sangat cocok untuk web development modern. XML masih        berguna di sistem lama atau kebutuhan khusus, tetapi JSON lebih populer karena lebih sederhana dan efisien untuk pertukaran data di API masa kini.
+# 3. Jelaskan fungsi dari method is_valid() pada form Django dan mengapa kita membutuhkan method tersebut?
+    Menurut saya, fungsi dari method is_valid() pada form Django adalah memeriksa apakah data yang dikirim melalui form sesuai dengan aturan validasi yang sudah ditentukan di forms.py maupun di model.
+    Kenapa kita butuh is_valid()?
+    Karena tanpa validasi, data yang tidak sesuai bisa masuk ke database, misalnya email salah format, harga kosong, atau kategori tidak valid. Dengan is_valid(), kita bisa pastikan hanya data yang benar dan         bersih yang tersimpan.
+# 4. Mengapa kita membutuhkan csrf_token saat membuat form di Django? Apa yang dapat terjadi jika kita tidak menambahkan csrf_token pada form Django? Bagaimana hal tersebut dapat dimanfaatkan oleh penyerang?
+    csrf_token di Django berfungsi mencegah serangan CSRF dengan memberi token unik pada setiap form. Tanpa token ini, penyerang bisa memalsukan request (misalnya transfer uang atau ganti password) dengan            memanfaatkan session user yang masih aktif.
+# 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step.
+    1. Awalnya saya menambahkan 4 fungsi views baru untuk melihat objek yang sudah ditambahkan dalam format XML, JSON, XML by ID, dan JSON by ID.
+        def show_xml(request):
+            product_list = Product.objects.all()
+            xml_data = serializers.serialize("xml", product_list)
+            return HttpResponse(xml_data, content_type="application/xml")
+    
+        def show_json(request):
+            product_list = Product.objects.all()
+            json_data = serializers.serialize("json", product_list)
+            return HttpResponse(json_data, content_type="application/json")
+        
+        def show_xml_by_id(request, product_id):
+            try:
+                product_list = Product.objects.filter(pk=product_id)
+                xml_data = serializers.serialize("xml", product_list)
+                return HttpResponse(xml_data, content_type="application/xml")
+            except Product.DoesNotExist:
+                return HttpResponse(status=404)
+        
+        def show_json_by_id(request, product_id):
+            try:
+                product_list = Product.objects.get(pk=product_id)
+                json_data = serializers.serialize("json", [product_list])
+                return HttpResponse(json_data, content_type="application/json")
+            except Product.DoesNotExist:
+                return HttpResponse(status=404)
+        lalu di tambahkan ke dalam urls.py
+    2. Lalu saya membuat direktori baru di direktori utama dengan nama templates yang berisi file base.html, base.html berfungsi sebagai template dasar yang dapat digunakan sebagai kerangka umum untuk        halaman web lainnya di dalam proyek. Isilah berkas base.html
+    3. Lalu saya update settings.py yang berisi TEMPLATES dan menambahkan 'DIRS': [BASE_DIR / 'templates'] agar file base.html terdeteksi sebagai file templates
+    4. Buat berkas baru pada direktori main dengan nama forms.py untuk membuat struktur form yang dapat menerima data Product baru. 
+    5. Buka berkas views.py yang ada pada direktori main dan tambahkan beberapa import lalu menambahkan fungsi fungsi berikut:
+        def create_product(request):
+            form = ProductForm(request.POST or None)
+        
+            if form.is_valid() and request.method == "POST":
+                form.save()
+                return redirect('main:show_main')
+        
+            context = {'form': form}
+            return render(request, "create_product.html", context)
+
+        def show_product(request, id):
+            product = get_object_or_404(Product, pk=id)
+            product.increment_views()
+        
+            context = {
+                'product': product
+            }
+        
+            return render(request, "product_detail.html", context)
+    6. Buka urls.py yang ada pada direktori main lalu import fungsi fungsi yang tadi ditambahkan:
+            urlpatterns = [
+        path('', show_main, name='show_main'),
+        path('xml/', show_xml, name='show_xml'),
+        path('json/', show_json, name='show_json'),
+        path('xml/<str:product_id>/', show_xml_by_id, name='show_xml_by_id'),
+        path('json/<str:product_id>/', show_json_by_id, name='show_json_by_id'),
+        path('create-product/', create_product, name='create_product'),
+        path('product/<str:id>/', show_product, name='show_product'),
+    ]
+# 6. Screenshot Localhost xml, json, xml by id, json by id.
+    Localhost xml
+    <img width="1919" height="615" alt="image" src="https://github.com/user-attachments/assets/c0349d55-7934-4369-80bf-156f14492708" />
+    Localhost json
+    <img width="1919" height="707" alt="image" src="https://github.com/user-attachments/assets/cd89f794-c9c1-4578-831b-c021e3356fb6" />
+    Localhost xml by id
+    <img width="1919" height="444" alt="image" src="https://github.com/user-attachments/assets/c2ce1334-8eda-4e25-914a-b9053a277b42" />
+    Localhost json by id
+    <img width="1919" height="508" alt="image" src="https://github.com/user-attachments/assets/58aca142-b005-4351-97fb-dcf77c9de258" />
+
+
+
