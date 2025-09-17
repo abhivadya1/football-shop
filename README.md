@@ -198,14 +198,14 @@ https://anak-agung44-louisballton.pbp.cs.ui.ac.id/
         path('product/<str:id>/', show_product, name='show_product'),
     ]
 # 6. Screenshot Localhost xml, json, xml by id, json by id.
-    Localhost xml
-    <img width="1919" height="615" alt="image" src="https://github.com/user-attachments/assets/c0349d55-7934-4369-80bf-156f14492708" />
-    Localhost json
-    <img width="1919" height="707" alt="image" src="https://github.com/user-attachments/assets/cd89f794-c9c1-4578-831b-c021e3356fb6" />
-    Localhost xml by id
-    <img width="1919" height="444" alt="image" src="https://github.com/user-attachments/assets/c2ce1334-8eda-4e25-914a-b9053a277b42" />
-    Localhost json by id
-    <img width="1919" height="508" alt="image" src="https://github.com/user-attachments/assets/58aca142-b005-4351-97fb-dcf77c9de258" />
+Localhost xml
+<img width="1919" height="615" alt="image" src="https://github.com/user-attachments/assets/c0349d55-7934-4369-80bf-156f14492708" />
+Localhost json
+<img width="1919" height="707" alt="image" src="https://github.com/user-attachments/assets/cd89f794-c9c1-4578-831b-c021e3356fb6" />
+Localhost xml by id
+<img width="1919" height="444" alt="image" src="https://github.com/user-attachments/assets/c2ce1334-8eda-4e25-914a-b9053a277b42" />
+Localhost json by id
+<img width="1919" height="508" alt="image" src="https://github.com/user-attachments/assets/58aca142-b005-4351-97fb-dcf77c9de258" />
 
 
 
