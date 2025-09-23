@@ -4,7 +4,7 @@ TAUTAN PWS:
 https://anak-agung44-louisballton.pbp.cs.ui.ac.id/
 
 <details>
-<Summary><b><Tugas 1></b></Summary>
+<Summary><b><Tugas2></b></Summary>
     
 # 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step :
     Membuat direktori baru dulu bernama football-shop lalu membuat mengaktifkan venv, lalu membuat requirements.txt supaya
@@ -129,7 +129,7 @@ https://anak-agung44-louisballton.pbp.cs.ui.ac.id/
 </details>
 
 <details>
-<Summary><b><Tugas 1></b></Summary>
+<Summary><b><Tugas3></b></Summary>
     
 # TUGAS 3
 # 1. Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
@@ -216,7 +216,7 @@ Localhost json by id
 
 
 <details>
-<Summary><b><Tugas 1></b></Summary>
+<Summary><b><Tugas4></b></Summary>
     
 # TUGAS 4
 # 1. Apa itu Django AuthenticationForm? Jelaskan juga kelebihan dan kekurangannya.
