@@ -3,6 +3,9 @@
 TAUTAN PWS:
 https://anak-agung44-louisballton.pbp.cs.ui.ac.id/
 
+<details>
+<Summary><b><Tugas 1></b></Summary>
+    
 # 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step :
     Membuat direktori baru dulu bernama football-shop lalu membuat mengaktifkan venv, lalu membuat requirements.txt supaya
      bisa menginstall banyak dependencies, lalu buat proyek django baru dengan nama football_shop, setelah itu lakukan konfigurasi environment variables dan proyek, setelah selesai jalankan server dan cek di localhost,
@@ -123,8 +126,11 @@ https://anak-agung44-louisballton.pbp.cs.ui.ac.id/
 
   # 6. Apakah ada feedback untuk asisten dosen tutorial 1 yang telah kamu kerjakan sebelumnya?
     Menurut saya tutorialnya sudah baik karena mudah dipahami, terlebih untuk pemula seperti saya.
+</details>
 
-
+<details>
+<Summary><b><Tugas 1></b></Summary>
+    
 # TUGAS 3
 # 1. Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
     Data delivery diperlukan dalam implementasi platform karena ia yang memastikan informasi bisa berpindah dari server ke pengguna, antar komponen sistem, dan antar layanan eksternal secara aman, cepat, dan         konsisten. Tanpa mekanisme ini, platform hanya jadi sistem statis yang tidak bisa benar-benar digunakan.
@@ -206,6 +212,79 @@ Localhost xml by id
 <img width="1919" height="444" alt="image" src="https://github.com/user-attachments/assets/c2ce1334-8eda-4e25-914a-b9053a277b42" />
 Localhost json by id
 <img width="1919" height="508" alt="image" src="https://github.com/user-attachments/assets/58aca142-b005-4351-97fb-dcf77c9de258" />
+</details>
 
 
+<details>
+<Summary><b><Tugas 1></b></Summary>
+    
+# TUGAS 4
+# 1. Apa itu Django AuthenticationForm? Jelaskan juga kelebihan dan kekurangannya.
+    AuthenticationForm adalah form bawaan Django (dari django.contrib.auth.forms) yang digunakan untuk proses login pengguna.
+    Form ini menyediakan field username dan password, serta sudah otomatis memvalidasi kredensial dengan sistem autentikasi Django.
 
+    Kelebihan:
+    Praktis → bisa langsung dipakai untuk login tanpa harus membuat form manual.
+    Aman → sudah terintegrasi dengan hashing password dan validasi bawaan Django.
+    Terintegrasi → bekerja langsung dengan authenticate() dan login() Django.
+
+    Kekurangan:
+    Hanya mendukung login berbasis username & password secara default.
+    Kurang fleksibel untuk kasus login custom (misalnya login pakai email, OTP, atau social login) → perlu di-extend.
+
+# 2. Apa perbedaan antara autentikasi dan otorisasi? Bagaiamana Django mengimplementasikan kedua konsep tersebut?
+    Autentikasi (Authentication): proses memverifikasi identitas pengguna (apakah dia benar pengguna yang terdaftar?).
+    ➝ Contoh: login dengan username & password.
+    Otorisasi (Authorization): proses menentukan hak akses pengguna setelah identitasnya terverifikasi.
+    ➝ Contoh: hanya admin boleh menghapus data, user biasa hanya bisa melihat.
+
+    Autentikasi:
+    authenticate() → cek kredensial.
+    login() → menyimpan status login di session.
+    request.user.is_authenticated → cek apakah user sedang login.
+    
+    Otorisasi:
+    Properti user: is_staff, is_superuser.
+    Sistem permissions dan groups.
+    Decorator: @login_required, @permission_required, @user_passes_test.
+
+# 3. Apa saja kelebihan dan kekurangan session dan cookies dalam konteks menyimpan state di aplikasi web?
+    Session
+    Kelebihan:
+    Data disimpan di server → lebih aman.    
+    Bisa menyimpan data kompleks (dictionary, objek serializable).
+    Terintegrasi dengan Django (SessionMiddleware).  
+    
+    Kekurangan:
+    Membebani server (butuh storage per-user).
+    Jika aplikasi berskala besar → butuh Redis/DB cluster untuk menyimpan session.
+
+    
+    Cookies
+    Kelebihan:
+    Disimpan di sisi client → tidak membebani server.
+    Cocok untuk data ringan (misalnya preferensi bahasa, tema).
+    Bisa langsung dibaca oleh JavaScript.
+
+    Kekurangan:
+    Ukuran terbatas (sekitar 4KB per cookie).
+    Rentan dicuri jika ada serangan XSS atau session hijacking.
+    Bisa dihapus oleh pengguna kapan saja.
+
+# 4. Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai? Bagaimana Django menangani hal tersebut?
+    Tidak 100% aman. Ada risiko:
+    XSS (Cross-Site Scripting): script berbahaya bisa mencuri cookie.
+    Session Hijacking: jika session ID dalam cookie dicuri.
+    CSRF (Cross-Site Request Forgery): cookie bisa dipakai dalam request palsu.
+    
+    Bagaimana Django menangani hal ini?
+    HttpOnly=True → mencegah cookie diakses lewat JavaScript.
+    Secure=True → cookie hanya dikirim via HTTPS.
+    SESSION_COOKIE_AGE → atur masa berlaku cookie.
+    CSRF_COOKIE_SECURE + CsrfViewMiddleware → mencegah CSRF.
+    Signed cookies (SignedCookieSession) → Django menandatangani cookie sehingga tidak bisa dimodifikasi sembarangan.
+
+# 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+
+</details>
