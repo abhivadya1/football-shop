@@ -285,6 +285,14 @@ Localhost json by id
     Signed cookies (SignedCookieSession) → Django menandatangani cookie sehingga tidak bisa dimodifikasi sembarangan.
 
 # 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
-
-
+    1. Membuat Fungsi dan Form Registrasi
+        Tambahkan fungsi register di bawah ini ke dalam views.py. Fungsi ini berfungsi untuk menghasilkan formulir registrasi secara otomatis dan menghasilkan akun pengguna ketika data di-submit dari form.
+    2. Buat berkas HTML baru dengan nama register.html pada direktori main/templates
+    3. Tambahkan fungsi login_user di bawah ini ke dalam views.py. Fungsi ini berfungsi untuk mengautentikasi pengguna yang ingin login.
+    4. Buat berkas HTML baru dengan nama login.html pada direktori main/templates.
+    5. Tambahkan fungsi logout_user di bawah ini ke dalam views.py. 
+    6. Merestriksi akses halaman Main dan Product Detail.
+    7. Menggunakan Data Dari Cookies.
+    8. Menghubungkan Model Product dengan User.
+    
 </details>
