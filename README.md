@@ -296,3 +296,47 @@ Localhost json by id
     8. Menghubungkan Model Product dengan User.
     
 </details>
+
+<details>
+<Summary><b>Tugas 5</b></Summary>
+
+# 1. Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
+    Dalam CSS, ketika sebuah elemen HTML memiliki beberapa selector yang berlaku bersamaan, browser akan menentukan gaya yang dipakai berdasarkan specificity (tingkat kekhususan) dan urutan deklarasi. Urutan         prioritasnya adalah sebagai berikut
+    1.Inline style (atribut style langsung pada elemen) memiliki prioritas tertinggi dibanding selector lain.
+    2.ID selector (#id) lebih kuat daripada class, pseudo-class, maupun selector atribut.
+    3.Class selector, atribut selector, dan pseudo-class (.class, [type="text"], :hover) berada di bawah ID, namun di atas selector elemen.
+    4.Tag/elemen selector (div, p, h1) dan pseudo-element (::before, ::after) memiliki prioritas paling rendah.
+    5.Jika dua selector memiliki tingkat specificity yang sama, maka yang ditulis paling terakhir dalam stylesheet akan digunakan (aturan “the last rule wins”).
+    6.Selain itu, deklarasi dengan !important akan mengalahkan aturan lain, tetapi penggunaannya tidak disarankan karena dapat menyulitkan pemeliharaan kode.
+    Dengan demikian, prioritas CSS ditentukan oleh kombinasi antara tingkat kekhususan selector, adanya !important, serta urutan penulisan aturan dalam stylesheet.
+
+# 2. Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design, serta jelaskan mengapa!
+    Responsive design menjadi konsep penting dalam pengembangan aplikasi web karena saat ini pengguna mengakses internet melalui berbagai perangkat dengan ukuran layar yang berbeda, mulai dari smartphone, tablet, hingga desktop. Tanpa responsive design, tampilan web bisa berantakan, sulit digunakan, dan menurunkan pengalaman pengguna (user experience). Dengan desain yang responsif, tata letak, ukuran teks, dan elemen interaktif dapat menyesuaikan secara otomatis sehingga web tetap nyaman digunakan di perangkat apa pun. Hal ini juga berdampak pada performa bisnis karena pengguna cenderung meninggalkan aplikasi/web yang sulit diakses.
+
+# 3. Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!
+    Margin = ruang luar elemen.
+    div {
+      margin: 20px; /* jarak luar elemen 20px */
+    }
+    
+    Border = garis pembatas elemen.
+    div {
+      border: 2px solid black; /* border hitam tebal 2px */
+    }
+    
+    Padding = ruang dalam elemen (antara konten dan border).
+    div {
+      padding: 15px; /* jarak dalam elemen 15px */
+    }
+# 4. Jelaskan konsep flex box dan grid layout beserta kegunaannya!
+    Flexbox dan Grid Layout adalah dua fitur CSS modern untuk mengatur tata letak elemen di halaman web. Flexbox bekerja dalam satu dimensi, yaitu baris atau kolom, sehingga cocok digunakan untuk mengatur elemen yang sejajar seperti menu navigasi, tombol, atau card. Sementara itu, Grid Layout bekerja dalam dua dimensi, baris dan kolom sekaligus, sehingga lebih efektif untuk membuat tata letak kompleks seperti halaman dengan header, sidebar, dan konten utama. Dengan menggunakan Flexbox dan Grid, pengembang dapat membuat desain web yang lebih rapi, fleksibel, dan responsif di berbagai ukuran layar.
+
+# 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+    Menambahkan tailwind ke aplikasi
+    Menambahkan fitur edit product, hapus product
+    Menambahkan navbar ke aplikasi
+    buat folder static isinya css sama image
+    styling halaman login, register, home, create product, detail product, edit product
+    push ke github dan pws
+
+</details>
