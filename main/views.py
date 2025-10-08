@@ -16,6 +16,10 @@ from django.views.decorators.http import require_POST
 from django.utils.html import strip_tags
 
 
+def get_product_json(request):
+    products = Product.objects.all().order_by('-pk')
+    return JsonResponse({"products": list(products.values())})
+
 @csrf_exempt
 @require_POST
 def add_product_entry_ajax(request):
@@ -41,7 +45,7 @@ def add_product_entry_ajax(request):
     return HttpResponse(b"CREATED", status=201)
 
 def show_json(request):
-    product_list = Product.objects.all()
+    product_list = Product.objects.select_related('user').all()
     data = [
         {
             'id': str(product.id),
@@ -52,7 +56,8 @@ def show_json(request):
             'item_views': product.item_views,
             'created_at': product.created_at.isoformat() if product.created_at else None,
             'is_featured': product.is_featured,
-            'id': product.id,
+            'user_id': product.user.id if product.user_id else None,
+            'username': product.user.username if product.user_id else None,
         }
         for product in product_list
     ]
